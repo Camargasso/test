@@ -1,0 +1,169 @@
+/* Estilos globais */
+body {
+    text-align: center;
+        font-family: "Muli", "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2; /* Cinza claro de fundo */
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2; /* Cinza claro de fundo */
+}
+
+h1 {
+    color: #6610f2; /* Cor principal roxa */
+}
+
+a{
+    font-family: "Muli", "Segoe UI", sans-serif;
+    color: #6610f2;
+    text-decoration: none;
+}
+/* Estilos para o campo de busca principal */
+label[for="campoBusca"] {
+    color: #333; /* Cor do texto cinza */
+}
+
+ul{
+list-style: none;
+}
+#campoBusca {
+    padding: 10px;
+    border: 1px solid #ccc; /* Borda cinza */
+    border-radius: 20px; /* Borda arredondada */
+    background-color: #fff; /* Fundo branco */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 80%; /* Largura ajustável */
+    max-width: 400px; /* Largura máxima */
+    display: block;
+    margin: 0 auto; /* Centraliza o campo horizontalmente */
+}
+
+button {
+    background-color: #6610f2; /* Cor de fundo roxa */
+    color: white; /* Cor do texto branco */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Estilos para a janela pop-up */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+    background-color: #fff; /* Fundo branco */
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    overflow-y: scroll; /* Ativar a barra de rolagem vertical quando necessário */
+}
+
+/* Estilos para a barra de rolagem no Chrome e Safari */
+.popup::-webkit-scrollbar {
+    width: 10px; /* Largura da barra de rolagem */
+}
+
+/* Estilos para o "polegar" da barra de rolagem no Chrome e Safari */
+.popup::-webkit-scrollbar-thumb {
+    background-color: #6610f2; /* Cor do polegar da barra de rolagem */
+    border-radius: 5px; /* Borda arredondada do polegar */
+}
+
+/* Estilos para os links dentro da janela pop-up */
+.popup a {
+    color: #6610f2; /* Cor do link roxa */
+    text-decoration: none;
+}
+
+.popup a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para o campo de busca dentro da janela pop-up */
+#campobusca {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc; /* Borda cinza */
+}
+
+/* Estilos para o botão de busca dentro da janela pop-up */
+.popup button {
+    background-color: #6610f2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Adicione margem na parte inferior do botão */
+}
+
+/* Estilos para a lista de categorias */
+#selecionarCategoria {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc; /* Borda cinza */
+}
+
+        /* Estilos para o controle deslizante de distância de localização */
+        .location-slider {
+            
+            width: 80%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        
+        #distance-slider {
+            width: 100%;
+        }
+/* Estilos para o campo de avaliação */
+#avaliacao {
+    
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc; /* Borda cinza */
+}
+
+#fecharPopup{
+    background-color: #6610f2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 20px; 
+}
+
+.popup-content {
+    list-style-type: none; /* Remova as marcas de lista */
+    padding: 0; /* Remova o preenchimento padrão da lista */
+    margin: 0; /* Remova a margem padrão da lista */
+}
+
+.popup-content > li {
+    margin-bottom: 10px; /* Espaçamento entre os elementos dentro do popup */
+}
+
+.popup-content > li:last-child {
+    margin-bottom: 0; /* Remova o espaço abaixo do último elemento */
+}
+
+.popup-content > li > a {
+    text-decoration: none;
+    color: #000; /* Cor do texto dos elementos do popup */
+}
+
+/* Estilo para o botão Fechar */
+.popup-content > li:last-child > a {
+    color: #ff0000; /* Cor do botão Fechar */
+    font-weight: bold; /* Estilo do botão Fechar */
+}
+
+#Verificados{
+    color: rgb(48, 173, 31);
+    box-decoration-break: clone;
+}

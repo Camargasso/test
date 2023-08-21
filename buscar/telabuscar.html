@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar</title>
+    <link rel="stylesheet" type="text/css" href="buscar.css">
+    <!-- <style>
+        /* Estilos para a janela pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style> -->
+</head>
+
+<body>
+    <h1>Buscar fornecedores</h1>
+
+    <label for="campoBusca">O que você está procurando?</label>
+    <input type="text" id="campoBusca" placeholder="Digite aqui">
+<br>
+    <button onclick="buscar()">Buscar</button>
+
+    <!-- Resultados da busca -->
+    <div id="resultados">
+        <!-- Os resultados da busca serão exibidos aqui -->
+    </div>
+
+    <script>
+        // Função para realizar a busca
+        function buscar() {
+            // Obtenha o valor digitado no campo de busca
+            var termoBusca = document.getElementById("campoBusca").value;
+
+            // Faça uma solicitação ao servidor (substitua isso pela sua lógica de busca no banco de dados)
+            // Neste exemplo, usaremos resultados fictícios
+            var resultados = realizarBusca(termoBusca);
+
+            // Exiba os resultados da busca
+            var resultadosDiv = document.getElementById("resultados");
+            resultadosDiv.innerHTML = "";
+
+            if (resultados.length === 0) {
+                resultadosDiv.innerHTML = "Nenhum resultado encontrado para: " + termoBusca;
+            } else {
+                for (var i = 0; i < resultados.length; i++) {
+                    var resultado = resultados[i];
+                    var resultadoElement = document.createElement("p");
+                    resultadoElement.textContent = resultado;
+                    resultadosDiv.appendChild(resultadoElement);
+                }
+            }
+        }
+
+        // Função de simulação de busca (substitua com sua própria lógica de busca)
+        function realizarBusca(termoBusca) {
+            // Neste exemplo, retornamos resultados de exemplo com base no termo de busca
+            var resultadosExemplo = [
+                "Resultado 1 para " + termoBusca,
+                "Resultado 2 para " + termoBusca,
+                "Resultado 3 para " + termoBusca
+            ];
+
+            return resultadosExemplo;
+        }
+    </script>
+    <!-- Texto que, quando clicado, abrirá a janela pop-up -->
+    <p><a href="#" id="mostrarPopup">Filtros premium</a></p>
+
+    <!-- A janela pop-up -->
+    <div class="popup" id="popup">
+        <h2>Opções</h2>
+        <ul class="popup-content">
+            <li><a href="#">Palavra-chave:
+                    <!-- Campo de busca -->
+                    <input type="text" id="campobusca" placeholder="Digite uma palavra-chave">
+                    <button onclick="buscar()">Buscar</button>
+
+                    <!-- Resultados da busca -->
+                    <div id="resultados">
+                        <!-- Os resultados da busca serão exibidos aqui -->
+                    </div>
+
+                    <script>
+                        function buscar() {
+                            // Obtenha o valor digitado no campo de busca
+                            var palavraChave = document.getElementById("campoBusca").value;
+
+                            // Simule uma busca (substitua isso com sua própria lógica de busca)
+                            var resultados = realizarBusca(palavraChave);
+
+                            // Exiba os resultados na div de resultados
+                            var resultadosDiv = document.getElementById("resultados");
+                            resultadosDiv.innerHTML = "";
+
+                            if (resultados.length === 0) {
+                                resultadosDiv.innerHTML = "Nenhum resultado encontrado.";
+                            } else {
+                                for (var i = 0; i < resultados.length; i++) {
+                                    var resultado = resultados[i];
+                                    var resultadoElement = document.createElement("p");
+                                    resultadoElement.textContent = resultado;
+                                    resultadosDiv.appendChild(resultadoElement);
+                                }
+                            }
+                        }
+
+                        // Função de simulação de busca (substitua com sua própria lógica de busca)
+                        function realizarBusca(palavraChave) {
+                            // Neste exemplo, retornamos resultados de exemplo com base na palavra-chave
+                            var resultadosExemplo = [
+                                "Resultado 1 para " + palavraChave,
+                                "Resultado 2 para " + palavraChave,
+                                "Resultado 3 para " + palavraChave
+                            ];
+
+                            return resultadosExemplo;
+                        }
+                    </script>
+                </a></li>
+            <li><a href="#">Categoria:</a></li>
+            <!-- Campo de busca por categoria -->
+            <select id="selecionarCategoria">
+                <option value="Todas">Todas as Categorias</option>
+                <option value="Categoria1">Alumínio</option>
+                <option value="Categoria2">Agrícolas</option>
+                <option value="Categoria3">Celulose </option>
+                <!-- Adicione mais opções de categoria conforme necessário -->
+            </select>
+
+            <!-- Botão para realizar a busca -->
+            <button onclick="buscarPorCategoria()">Buscar</button>
+
+            <!-- Resultados da busca -->
+            <div id="resultados">
+                <!-- Os resultados da busca serão exibidos aqui -->
+            </div>
+
+            <script>
+                function buscarPorCategoria() {
+                    // Obtenha a categoria selecionada
+                    var categoriaSelecionada = document.getElementById("selecionarCategoria").value;
+
+                    // Simule uma busca (substitua isso com sua própria lógica de busca)
+                    var resultados = realizarBuscaPorCategoria(categoriaSelecionada);
+
+                    // Exiba os resultados na div de resultados
+                    var resultadosDiv = document.getElementById("resultados");
+                    resultadosDiv.innerHTML = "";
+
+                    if (resultados.length === 0) {
+                        resultadosDiv.innerHTML = "Nenhum resultado encontrado para a categoria: " +
+                            categoriaSelecionada;
+                    } else {
+                        for (var i = 0; i < resultados.length; i++) {
+                            var resultado = resultados[i];
+                            var resultadoElement = document.createElement("p");
+                            resultadoElement.textContent = resultado;
+                            resultadosDiv.appendChild(resultadoElement);
+                        }
+                    }
+                }
+
+                // Função de simulação de busca por categoria (substitua com sua própria lógica de busca)
+                function realizarBuscaPorCategoria(categoria) {
+                    // Neste exemplo, retornamos resultados de exemplo com base na categoria selecionada
+                    var resultadosExemplo = [];
+
+                    if (categoria === "Categoria1") {
+                        resultadosExemplo = ["Resultado 1 da Categoria 1", "Resultado 2 da Categoria 1"];
+                    } else if (categoria === "Categoria2") {
+                        resultadosExemplo = ["Resultado 1 da Categoria 2", "Resultado 2 da Categoria 2"];
+                    } else if (categoria === "Categoria3") {
+                        resultadosExemplo = ["Resultado 1 da Categoria 3", "Resultado 2 da Categoria 3"];
+                    } else {
+                        resultadosExemplo = ["Resultado 1 de Todas as Categorias",
+                        "Resultado 2 de Todas as Categorias"];
+                    }
+
+                    return resultadosExemplo;
+                }
+            </script>
+            <li><a href="#">Localização:</a></li>
+            <div class="location-slider">
+                <input type="range" id="distance-slider" min="1" max="100" value="50">
+                <p>Distância máxima: <span id="distance-value">50 km</span></p>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+        $(document).ready(function() {
+            // Evento de alteração no controle deslizante
+            $("#distance-slider").on("input", function() {
+                const distanceValue = $(this).val();
+                $("#distance-value").text(distanceValue + " km");
+            });
+        });
+        </script>
+<li><a href="#">Avaliações:</a></li>
+<label for="avaliacao">Nota:</label>
+<select id="avaliacao">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+
+<button onclick="buscarPorAvaliacao()">Buscar</button>
+
+<!-- Resultados da busca -->
+<div id="resultados">
+    <!-- Os resultados da busca serão exibidos aqui -->
+</div>
+
+<script>
+    // Função para buscar por avaliações
+    function buscarPorAvaliacao() {
+        // Obtenha a avaliação selecionada pelo usuário
+        var avaliacao = document.getElementById("avaliacao").value;
+
+        // Faça uma solicitação ao servidor (substitua isso pela sua lógica de busca no banco de dados)
+        // Neste exemplo, usaremos avaliações fictícias
+        var resultados = realizarBuscaPorAvaliacao(avaliacao);
+
+        // Exiba os resultados da busca
+        var resultadosDiv = document.getElementById("resultados");
+        resultadosDiv.innerHTML = "";
+
+        if (resultados.length === 0) {
+            resultadosDiv.innerHTML = "Nenhuma avaliação encontrada com a avaliação especificada.";
+        } else {
+            for (var i = 0; i < resultados.length; i++) {
+                var resultado = resultados[i];
+                var resultadoElement = document.createElement("p");
+                resultadoElement.textContent = resultado;
+                resultadosDiv.appendChild(resultadoElement);
+            }
+        }
+    }
+
+    // Função de simulação de busca por avaliações (substitua com sua própria lógica de busca)
+    function realizarBuscaPorAvaliacao(avaliacao) {
+        // Neste exemplo, retornamos resultados de exemplo com base na avaliação
+        var resultadosExemplo = [
+            "Produto A: Avaliação 4",
+            "Produto B: Avaliação 3",
+            "Produto C: Avaliação 5",
+            "Produto D: Avaliação 2",
+            "Produto E: Avaliação 4"
+        ];
+
+        // Filtrar resultados com base na avaliação selecionada
+        var resultadosFiltrados = resultadosExemplo.filter(function (resultado) {
+            var avaliacaoProduto = parseInt(resultado.split("Avaliação ")[1]);
+            return avaliacaoProduto === parseInt(avaliacao);
+        });
+
+        return resultadosFiltrados;
+    }
+</script>
+<label id="Verificados">
+    <input type="checkbox" name="categoria" value="Categoria1">
+    Verificados pela Supply
+</label>
+
+<!-- Exemplo de filtro por disponibilidade de estoque -->
+<h3>Disponibilidade de Estoque</h3>
+<label>
+    <input type="checkbox" name="estoque" value="em_estoque">
+    Em Estoque
+</label>
+<label>
+    <input type="checkbox" name="estoque" value="fora_de_estoque">
+    Fora de Estoque
+</label>
+<script>
+    // Função para aplicar filtros com base nas seleções dos usuários
+function aplicarFiltros() {
+    var filtrosSelecionados = {
+        categoria: [],
+        avaliacao: [],
+        estoque: []
+    };
+
+    // Coletar seleções de categoria
+    var categoriaCheckboxes = document.getElementsByName("categoria");
+    categoriaCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked) {
+            filtrosSelecionados.categoria.push(checkbox.value);
+        }
+    });
+
+    // Coletar seleções de disponibilidade de estoque
+    var estoqueCheckboxes = document.getElementsByName("estoque");
+    estoqueCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked) {
+            filtrosSelecionados.estoque.push(checkbox.value);
+        }
+    });
+
+    // Aplicar os filtros aos resultados da busca
+    // Aqui você implementaria a lógica para filtrar os resultados com base nos filtrosSelecionados
+
+    // Exibir os resultados filtrados
+    console.log("Filtros Selecionados:", filtrosSelecionados);
+}
+
+</script>
+</ul>
+<br>
+<p><a href="#" id="fecharPopup">Fechar</a></p>
+</div>
+
+<script>
+    // JavaScript para mostrar e fechar a janela pop-up
+    var mostrarPopup = document.getElementById("mostrarPopup");
+    var fecharPopup = document.getElementById("fecharPopup");
+    var popup = document.getElementById("popup");
+
+    mostrarPopup.addEventListener("click", function () {
+        popup.style.display = "block";
+    });
+
+    fecharPopup.addEventListener("click", function () {
+        popup.style.display = "none";
+    });
+</script>
+</body>
+
+</html>

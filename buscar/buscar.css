@@ -56,8 +56,8 @@ button {
     transform: translate(-50%, -50%);
     width: 400px;
     height: 300px;
-    background-color: #fff; /* Fundo branco */
-    padding: 20px;
+        background-color: #fff; /* Fundo branco */
+        padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     overflow-y: scroll; /* Ativar a barra de rolagem vertical quando necessário */
 }

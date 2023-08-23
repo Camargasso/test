@@ -191,8 +191,8 @@
             </script>
             <li><a href="#">Localização:</a></li>
             <div class="location-slider">
-                <input type="range" id="distance-slider" min="1" max="100" value="50">
-                <p>Distância máxima: <span id="distance-value">50 km</span></p>
+                <input type="range" id="distance-slider" min="1" max="100" value="1">
+                <p>Distância máxima: <span id="distance-value">1 km</span></p>
             </div>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
@@ -245,6 +245,8 @@
                 resultadosDiv.appendChild(resultadoElement);
             }
         }
+
+        console.log("davi boquete");
     }
 
     // Função de simulação de busca por avaliações (substitua com sua própria lógica de busca)
@@ -275,7 +277,7 @@
 <!-- Exemplo de filtro por disponibilidade de estoque -->
 <h3>Disponibilidade de Estoque</h3>
 <label>
-    <input type="checkbox" name="estoque" value="em_estoque">
+    <input type="checkbox" name="estoque" value="em_estoque" id="fdc">
     Em Estoque
 </label>
 <label>
@@ -318,6 +320,7 @@ function aplicarFiltros() {
 </ul>
 <br>
 <p><a href="#" id="fecharPopup">Fechar</a></p>
+<button id="limparFiltros">Limpar Filtros</button>
 </div>
 
 <script>
@@ -333,6 +336,40 @@ function aplicarFiltros() {
     fecharPopup.addEventListener("click", function () {
         popup.style.display = "none";
     });
+</script>
+
+<!-- Script para limparFiltros -->
+<script>
+    // Seleciona o botão "Limpar Filtros" pelo ID
+var botaoLimparFiltros = document.getElementById("limparFiltros");
+
+// Adiciona um ouvinte de evento para o clique no botão
+botaoLimparFiltros.addEventListener("click", function () {
+    // Limpa o campo de busca
+    document.getElementById("campoBusca").value = "";
+
+    // Limpa os resultados da busca
+    var resultadosDiv = document.getElementById("resultados");
+    resultadosDiv.innerHTML = "";
+
+    // Limpa as seleções de categoria e disponibilidade de estoque
+    var categoriaCheckboxes = document.getElementsByName("categoria");
+    categoriaCheckboxes.forEach(function (checkbox) {
+        checkbox.checked = false;
+    });
+
+    var estoqueCheckboxes = document.getElementsByName("estoque");
+    estoqueCheckboxes.forEach(function (checkbox) {
+        checkbox.checked = false;
+    });
+
+    // Limpa a seleção de avaliação
+    document.getElementById("avaliacao").selectedIndex = 0;
+
+    // Restabeleça o valor padrão do controle deslizante de distância
+    document.getElementById("distance-slider").value = 1;
+    document.getElementById("distance-value").textContent = "1 km";
+});
 </script>
 </body>
 

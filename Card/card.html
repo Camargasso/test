@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel de Cards</title>
+    <style>
+        /* Estilos para o container dos cards */
+        .card-container {
+            display: flex;
+            overflow: hidden;
+            align-items: center; /* Alinha os cards verticalmente no centro */
+        }
+
+        /* Estilos para cada card */
+        .card {
+            margin-left: 20px;
+            width: calc(100% / 3); /* 33.33% de largura para cada card */
+            max-width: 300px; /* Largura máxima do card aumentada */
+            height: 320px; 
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-right: 20px;
+            background-color: white;
+            color: grey;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .card h2 {
+            font-size: 14px;
+            margin: 0;
+            color: #5d52ba;
+        }
+
+        .card p {
+            font-size: 12px;
+            margin: 5px 0;
+        }
+
+        .card a {
+            text-decoration: none;
+            background-color: #5d52ba;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* Estilos para os botões de navegação na lateral */
+        .nav-buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 40px; /* Espaçamento acima dos botões aumentado */
+        }
+
+        .nav-buttons button {
+            margin-top: 110px;
+            padding: 5px 10px;
+            background-color: #5d52ba;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .nav-buttons button:nth-child(1) {
+            order: 2; /* Botão "Antes" no meio */
+        }
+
+        /* Estilo para o container principal */
+        .main-container {
+            display: flex;
+            align-items: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="nav-buttons">
+            <button onclick="previousCard()">Antes</button>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <img src="./images/moishale.jpg" alt="Imagem 1">
+                <div>
+                    <h2>Empresa moishales </h2>
+                    <p>Investidor anjo; CEO Supply e bilionário</p>
+                </div>
+                <a href="link1.html">Saiba mais</a>
+            </div>
+            <div class="card">
+                <img src="imagem2.jpg" alt="Imagem 2">
+                <div>
+                    <h2>Título 2</h2>
+                    <p>Descrição 2</p>
+                </div>
+                <a href="link2.html">Saiba mais</a>
+            </div>
+            <div class="card">
+                <img src="imagem3.jpg" alt="Imagem 3">
+                <div>
+                    <h2>Título 3</h2>
+                    <p>Descrição 3</p>
+                </div>
+                <a href="link3.html">Saiba mais</a>
+            </div>
+            <div class="card">
+                <img src="imagem3.jpg" alt="Imagem 3">
+                <div>
+                    <h2>Título 4</h2>
+                    <p>Descrição 4</p>
+                </div>
+                <a href="link3.html">Saiba mais</a>
+            </div>
+            
+            <!-- Adicione mais cards conforme necessário -->
+        </div>
+        <div class="nav-buttons">
+            <button onclick="nextCard()">Depois</button>
+        </div>
+    </div>
+
+    <script>
+        // Funções para navegar pelos cards
+        let currentIndex = 0;
+        const cards = document.querySelectorAll('.card');
+
+        function showCard(index) {
+            cards.forEach((card, i) => {
+                card.style.display = i >= index && i < index + 3 ? 'flex' : 'none';
+            });
+        }
+
+        function nextCard() {
+            if (currentIndex < cards.length - 3) {
+                currentIndex++;
+                showCard(currentIndex);
+            }
+        }
+
+        function previousCard() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                showCard(currentIndex);
+            }
+        }
+
+        // Exibir os três primeiros cards ao carregar a página
+        showCard(currentIndex);
+    </script>
+</body>
+</html>
